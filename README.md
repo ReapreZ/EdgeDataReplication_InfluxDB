@@ -23,15 +23,15 @@ rename the develop.ev file to .env and
 Modify the .env file with your credentials:
 
 ```env
-MARKONE_INFLUX_USERNAME=your_local_username
-MARKONE_INFLUX_PASSWORD=your_local_password
-MARKONE_INFLUX_LOCAL_API_TOKEN=your_local_api_token
-MARKONE_INFLUX_LOCAL_ORG=your_local_org
-MARKONE_INFLUX_LOCAL_BUCKET_NAME=your_local_bucket
-MARKONE_INFLUX_LOCAL_URL=https://your-local-instance-url
-MARKONE_INFLUX_CLOUD_API_TOKEN=your_cloud_api_token
-MARKONE_INFLUX_CLOUD_URL=https://your-cloud-instance-url
-MARKONE_INFLUX_CLOUD_BUCKET_NAME=your_cloud_bucket
+INFLUX_USERNAME=your_local_username
+INFLUX_PASSWORD=your_local_password
+INFLUX_LOCAL_API_TOKEN=your_local_api_token
+INFLUX_LOCAL_ORG=your_local_org
+INFLUX_LOCAL_BUCKET_NAME=your_local_bucket
+INFLUX_LOCAL_URL=https://your-local-instance-url
+INFLUX_CLOUD_API_TOKEN=your_cloud_api_token
+INFLUX_CLOUD_URL=https://your-cloud-instance-url
+INFLUX_CLOUD_BUCKET_NAME=your_cloud_bucket
 INFLUX_CLOUD_ORG_ID=your_cloud_org_id
 INFLUX_CLOUD_BUCKET_ID=your_cloud_bucket_id
 ```
