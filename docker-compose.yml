@@ -1,0 +1,29 @@
+services:
+  influxdb:
+    image: influxdb:2.7
+    container_name: edge_influxdb
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=${INFLUX_USERNAME}
+      - DOCKER_INFLUXDB_INIT_PASSWORD=${INFLUX_PASSWORD}
+      - DOCKER_INFLUXDB_INIT_ORG=${INFLUX_LOCAL_ORG}
+      - DOCKER_INFLUXDB_INIT_BUCKET=${INFLUX_LOCAL_BUCKET_NAME}
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${INFLUX_LOCAL_API_TOKEN}
+      - DOCKER_INFLUXDB_INIT_RETENTION=1d
+    ports:
+      - "8087:8086"
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+      - ./setup_replication.sh:/setup_replication.sh
+      - ./.env:/app/.env:ro
+    command: >
+      /bin/bash -c "
+        /entrypoint.sh influxd & 
+        sleep 10; 
+        bash /setup_replication.sh; 
+        tail -f /dev/null
+      "
+
+volumes:
+
+  influxdb_data:
