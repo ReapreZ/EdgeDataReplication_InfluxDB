@@ -19,6 +19,7 @@ Ensure the following are installed on your system:
 
 ### 1. Set Environment Variables
 
+rename the develop.ev file to .env and
 Modify the .env file with your credentials:
 
 ```env
